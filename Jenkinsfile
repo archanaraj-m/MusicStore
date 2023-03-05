@@ -17,4 +17,20 @@ node('MAVEN_JDK8')
     {
         sh 'dotnet test ./MusicStoreTest/MusicStoreTest.csproj --logger:"junit;LogFileName=test-results.xml"'
     }
+    stage('clientapp')
+    {
+        sh 'cd ./MusicStore/ClientApp'
+    }
+    stage('installnpm')
+    {
+        sh 'npm install'
+    }
+    stage('runbuild')
+    {
+        sh 'npm run build'
+    }
+    stage('test')
+    {
+        sh 'npm run test'
+    }
 }
