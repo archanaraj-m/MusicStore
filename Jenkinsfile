@@ -23,7 +23,7 @@ node('MAVEN_JDK8')
     }
     stage('installnpm')
     {
-        sh 'npm install'
+        sh 'npm install ./MusicStore/ClientApp'
     }
     stage('runbuild')
     {
