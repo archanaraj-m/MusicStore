@@ -2,7 +2,8 @@ node('MAVEN_JDK8')
 {
     stage('vcs')
     {
-        git 'https://github.com/CICDProjects/MusicStore.git'
+        git url: 'https://github.com/CICDProjects/MusicStore.git',
+            branch: 'main'
     }
     stage('restore')
     {
@@ -17,4 +18,3 @@ node('MAVEN_JDK8')
         sh 'dotnet test ./MusicStoreTest/MusicStoreTest.csproj --logger:"junit;LogFileName=test-results.xml"'
     }
 }
-
